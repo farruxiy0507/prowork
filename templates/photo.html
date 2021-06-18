@@ -2,7 +2,13 @@
 
 {% block content %}
     {% if photos.photo %}
-        <p><img class="" src="{{ photos.photo.url }}"></p>
+        <p><img class="" style="
+                height: 250px;
+                width: 25%;
+                object-fit: cover;
+
+                max-width: inherit;
+                max-width: inherit;" src="{{ photos.photo.url }}"></p>
     {% endif %}
     {{ photos.description|linebreaks }}
 {% endblock content %}
