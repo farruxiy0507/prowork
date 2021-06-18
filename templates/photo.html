@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if photos.photo %}
+        <p><img class="" src="{{ photos.photo.url }}"></p>
+    {% endif %}
+    {{ photos.description|linebreaks }}
+{% endblock content %}

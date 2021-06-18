@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if searched %}
+        <h1>You searched for {{ searched }} </h1>
+        <br/>
+        <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                  {% for p in photos %}
+                    <div class="col">
+                      <div class="card shadow-sm">
+                          {% if p.photo %}
+                        <a href="{{ p.get_absolute_url }}"><img class="card-img-top" src="{{ p.photo.url }}" alt=""></a>
+                          {% endif %}
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Pic name: {{ p.title }}</h4>
+                              <p class="card-text">Category: {{ p.category.name  }}</p>
+                            </div>
+                          </div>
+                            <div class="card-body">
+                                <a href="{{ p.get_absolute_url }}" class="card-link">View</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+    {% else %}
+        <h1>Hey! You forgot to search for a title  </h1>
+    {% endif %}
+{% endblock %}
+
